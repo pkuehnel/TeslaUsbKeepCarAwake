@@ -5,6 +5,7 @@ using MQTTnet.Client;
 using MQTTnet.Diagnostics;
 using MQTTnet.Implementations;
 using MQTTnet;
+using Newtonsoft.Json;
 using Quartz;
 using Quartz.Impl;
 using Quartz.Spi;
@@ -22,6 +23,13 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var settings = new Settings();
+if (File.Exists("settings.json"))
+{
+    var settingsString = await File.ReadAllTextAsync("settings.json");
+    settings = JsonConvert.DeserializeObject<Settings>(settingsString);
+}
+
 builder.Services
     .AddSingleton<JobManager>()
     .AddTransient<IJobFactory, JobFactory>()
@@ -33,8 +41,9 @@ builder.Services
     .AddTransient<MqttFactory>()
     .AddSingleton<MqttService>()
     .AddTransient<ITeslaMateService, TeslaMateService>()
+    .AddTransient<HelloService>()
     .AddSingleton<CarState>()
-    .AddSingleton<Settings>()
+    .AddSingleton(settings ?? new Settings())
     ;
 
 builder.Host.UseSerilog((context, configuration) => configuration
@@ -42,20 +51,16 @@ builder.Host.UseSerilog((context, configuration) => configuration
 
 var app = builder.Build();
 
-var settings = app.Services.GetRequiredService<Settings>();
+settings = app.Services.GetRequiredService<Settings>();
 
-settings.TeslaMateBaseUrl = args[0];
-settings.MqttUrl = args[1];
-settings.RelevantGeofence = args[2];
-settings.ArchiveUploadPath = args[3];
-settings.CarId = Convert.ToInt32(args[4]);
+if (settings.CarId > 0)
+{
+    var mqttService = app.Services.GetRequiredService<MqttService>();
+    await mqttService.ConnectMqttClient();
 
-var mqttService = app.Services.GetRequiredService<MqttService>();
-await mqttService.ConnectMqttClient();
-
-var jobManager = app.Services.GetRequiredService<JobManager>();
-await jobManager.StartJobs();
-
+    var jobManager = app.Services.GetRequiredService<JobManager>();
+    await jobManager.StartJobs();
+}
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {

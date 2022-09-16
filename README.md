@@ -1,9 +1,5 @@
 # TeslaUsbKeepCarAwake
-Start with parameters:
-* TeslaMateUrl
-* Mosquito Url
-* Relevant Geofence
-* Path to `ARCHIVE_UPLOADED` file
-* CarId
+There needs to be a file named `settings.json` in the same directory as the executable.
+Example content:
 
-Example: `TeslaUsbKeepCarAwake.exe http://192.168.1.50:4000/ 192.168.1.50:1883 Home Z:\Sicherungskopieen\TeslaVideo\ARCHIVE_UPLOADED 1`
+`{"CarId":1,"TeslaMateBaseUrl":"http://192.168.1.50:4000/","MqttUrl":"192.168.1.50:1883","RelevantGeofence":"Home","ArchiveUploadPath":"Z:\\Sicherungskopieen\\TeslaVideo\\ARCHIVE_UPLOADED"}`

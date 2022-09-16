@@ -1,0 +1,349 @@
+[01:47:41.770 VRB TeslaUsbKeepCarAwake.Services.MqttService] ConnectMqttClient()
+[01:47:41.891 ERR TeslaUsbKeepCarAwake.Services.MqttService] Could not connect to TeslaMate mqtt server
+MQTTnet.Exceptions.MqttCommunicationException: Value cannot be null. (Parameter 'host')
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'host')
+   at MQTTnet.Implementations.CrossPlatformSocket.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MQTTnet.Implementations.MqttTcpChannel.ConnectAsync(CancellationToken cancellationToken)
+   at MQTTnet.Adapter.MqttChannelAdapter.ConnectAsync(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MQTTnet.Adapter.MqttChannelAdapter.WrapAndThrowException(Exception exception)
+   at MQTTnet.Adapter.MqttChannelAdapter.ConnectAsync(CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken)
+   at TeslaUsbKeepCarAwake.Services.MqttService.ConnectMqttClient() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\MqttService.cs:line 53
+[01:47:42.025 VRB TeslaUsbKeepCarAwake.Scheduling.JobManager] StartJobs()
+[01:47:42.308 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","FullName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Key":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":1,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","JobName":"0249e750-e947-4fed-b6f6-6c673594fef7","JobGroup":"DEFAULT","FullName":"DEFAULT.535c6fff-1847-41db-a1cd-3542422e6a5f","Key":{"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989688622699771","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:47:42.2425248+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:47:42.2777173+00:00","NextFireTimeUtc":"2022-09-16T23:47:52.2425248+00:00","PrevFireTimeUtc":null,"ScheduledFireTimeUtc":"2022-09-16T23:47:42.2425248+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:47:42.386 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:47:42.392 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:47:42.425 ERR Quartz.Core.JobRunShell] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:47:42.441 ERR Quartz.Core.ErrorLogger] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:47:42.484 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:47:52.255 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","FullName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Key":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":2,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","JobName":"0249e750-e947-4fed-b6f6-6c673594fef7","JobGroup":"DEFAULT","FullName":"DEFAULT.535c6fff-1847-41db-a1cd-3542422e6a5f","Key":{"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989688622699772","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:47:42.2425248+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:47:52.2550943+00:00","NextFireTimeUtc":"2022-09-16T23:48:02.2425248+00:00","PrevFireTimeUtc":"2022-09-16T23:47:42.2425248+00:00","ScheduledFireTimeUtc":"2022-09-16T23:47:52.2425248+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:47:52.341 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:47:52.342 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:47:52.366 ERR Quartz.Core.JobRunShell] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:47:52.374 ERR Quartz.Core.ErrorLogger] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:47:52.391 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:48:02.245 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","FullName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Key":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":3,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","JobName":"0249e750-e947-4fed-b6f6-6c673594fef7","JobGroup":"DEFAULT","FullName":"DEFAULT.535c6fff-1847-41db-a1cd-3542422e6a5f","Key":{"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989688622699773","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:47:42.2425248+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:48:02.2454494+00:00","NextFireTimeUtc":"2022-09-16T23:48:12.2425248+00:00","PrevFireTimeUtc":"2022-09-16T23:47:52.2425248+00:00","ScheduledFireTimeUtc":"2022-09-16T23:48:02.2425248+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:48:02.274 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:48:02.274 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:48:02.296 ERR Quartz.Core.JobRunShell] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:48:02.303 ERR Quartz.Core.ErrorLogger] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:48:02.313 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:48:12.246 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","FullName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Key":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":4,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","JobName":"0249e750-e947-4fed-b6f6-6c673594fef7","JobGroup":"DEFAULT","FullName":"DEFAULT.535c6fff-1847-41db-a1cd-3542422e6a5f","Key":{"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989688622699774","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:47:42.2425248+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:48:12.2466644+00:00","NextFireTimeUtc":"2022-09-16T23:48:22.2425248+00:00","PrevFireTimeUtc":"2022-09-16T23:48:02.2425248+00:00","ScheduledFireTimeUtc":"2022-09-16T23:48:12.2425248+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:48:12.281 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:48:12.282 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:48:12.308 ERR Quartz.Core.JobRunShell] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:48:12.314 ERR Quartz.Core.ErrorLogger] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:48:12.323 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:48:22.252 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","FullName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Key":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":5,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","JobName":"0249e750-e947-4fed-b6f6-6c673594fef7","JobGroup":"DEFAULT","FullName":"DEFAULT.535c6fff-1847-41db-a1cd-3542422e6a5f","Key":{"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989688622699775","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:47:42.2425248+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:48:22.2520860+00:00","NextFireTimeUtc":"2022-09-16T23:48:32.2425248+00:00","PrevFireTimeUtc":"2022-09-16T23:48:12.2425248+00:00","ScheduledFireTimeUtc":"2022-09-16T23:48:22.2425248+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:48:22.285 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:48:22.286 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:48:22.310 ERR Quartz.Core.JobRunShell] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:48:22.321 ERR Quartz.Core.ErrorLogger] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:48:22.344 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:48:32.246 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","FullName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Key":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":6,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","JobName":"0249e750-e947-4fed-b6f6-6c673594fef7","JobGroup":"DEFAULT","FullName":"DEFAULT.535c6fff-1847-41db-a1cd-3542422e6a5f","Key":{"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989688622699776","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:47:42.2425248+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:48:32.2457899+00:00","NextFireTimeUtc":"2022-09-16T23:48:42.2425248+00:00","PrevFireTimeUtc":"2022-09-16T23:48:22.2425248+00:00","ScheduledFireTimeUtc":"2022-09-16T23:48:32.2425248+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:48:32.279 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:48:32.280 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:48:32.304 ERR Quartz.Core.JobRunShell] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:48:32.312 ERR Quartz.Core.ErrorLogger] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:48:32.322 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:48:42.243 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","FullName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Key":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":7,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","JobName":"0249e750-e947-4fed-b6f6-6c673594fef7","JobGroup":"DEFAULT","FullName":"DEFAULT.535c6fff-1847-41db-a1cd-3542422e6a5f","Key":{"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989688622699777","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:47:42.2425248+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:48:42.2432574+00:00","NextFireTimeUtc":"2022-09-16T23:48:52.2425248+00:00","PrevFireTimeUtc":"2022-09-16T23:48:32.2425248+00:00","ScheduledFireTimeUtc":"2022-09-16T23:48:42.2425248+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:48:42.273 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:48:42.274 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:48:42.299 ERR Quartz.Core.JobRunShell] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:48:42.304 ERR Quartz.Core.ErrorLogger] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:48:42.315 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:48:42.562 ERR Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: Unable to resolve service for type 'TeslaUsbKeepCarAwake.Services.HelloService' while attempting to activate 'TeslaUsbKeepCarAwake.Controllers.HelloController'.
+   at Microsoft.Extensions.DependencyInjection.ActivatorUtilities.GetService(IServiceProvider sp, Type type, Type requiredBy, Boolean isDefaultParameterRequired)
+   at lambda_method8(Closure , IServiceProvider , Object[] )
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerActivatorProvider.<>c__DisplayClass7_0.<CreateActivator>b__0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Controllers.ControllerFactoryProvider.<>c__DisplayClass6_0.<CreateControllerFactory>g__CreateController|0(ControllerContext controllerContext)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.InvokeInnerFilterAsync()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+[01:48:52.247 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","FullName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Key":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":8,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","JobName":"0249e750-e947-4fed-b6f6-6c673594fef7","JobGroup":"DEFAULT","FullName":"DEFAULT.535c6fff-1847-41db-a1cd-3542422e6a5f","Key":{"Name":"535c6fff-1847-41db-a1cd-3542422e6a5f","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"0249e750-e947-4fed-b6f6-6c673594fef7","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989688622699778","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:47:42.2425248+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:48:52.2477714+00:00","NextFireTimeUtc":"2022-09-16T23:49:02.2425248+00:00","PrevFireTimeUtc":"2022-09-16T23:48:42.2425248+00:00","ScheduledFireTimeUtc":"2022-09-16T23:48:52.2425248+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:48:52.279 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:48:52.280 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:48:52.303 ERR Quartz.Core.JobRunShell] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:48:52.308 ERR Quartz.Core.ErrorLogger] Job DEFAULT.0249e750-e947-4fed-b6f6-6c673594fef7 threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:48:52.320 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:49:18.590 VRB TeslaUsbKeepCarAwake.Services.MqttService] ConnectMqttClient()
+[01:49:18.693 ERR TeslaUsbKeepCarAwake.Services.MqttService] Could not connect to TeslaMate mqtt server
+MQTTnet.Exceptions.MqttCommunicationException: Value cannot be null. (Parameter 'host')
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'host')
+   at MQTTnet.Implementations.CrossPlatformSocket.ConnectAsync(String host, Int32 port, CancellationToken cancellationToken)
+   at MQTTnet.Implementations.MqttTcpChannel.ConnectAsync(CancellationToken cancellationToken)
+   at MQTTnet.Adapter.MqttChannelAdapter.ConnectAsync(CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at MQTTnet.Adapter.MqttChannelAdapter.WrapAndThrowException(Exception exception)
+   at MQTTnet.Adapter.MqttChannelAdapter.ConnectAsync(CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken)
+   at MQTTnet.Client.MqttClient.ConnectAsync(MqttClientOptions options, CancellationToken cancellationToken)
+   at TeslaUsbKeepCarAwake.Services.MqttService.ConnectMqttClient() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\MqttService.cs:line 53
+[01:49:18.728 VRB TeslaUsbKeepCarAwake.Scheduling.JobManager] StartJobs()
+[01:49:18.995 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","FullName":"DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d","Key":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":1,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"5f9872c3-807c-412a-8225-92fb4e06710e","Group":"DEFAULT","JobName":"8c365504-e3a1-4de9-913e-6b0da017323d","JobGroup":"DEFAULT","FullName":"DEFAULT.5f9872c3-807c-412a-8225-92fb4e06710e","Key":{"Name":"5f9872c3-807c-412a-8225-92fb4e06710e","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989689589603474","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:49:18.9345867+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:49:18.9674407+00:00","NextFireTimeUtc":"2022-09-16T23:49:28.9345867+00:00","PrevFireTimeUtc":null,"ScheduledFireTimeUtc":"2022-09-16T23:49:18.9345867+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:49:19.072 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:49:19.078 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:49:19.108 ERR Quartz.Core.JobRunShell] Job DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:49:19.154 ERR Quartz.Core.ErrorLogger] Job DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:49:19.176 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:49:28.944 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","FullName":"DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d","Key":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":2,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"5f9872c3-807c-412a-8225-92fb4e06710e","Group":"DEFAULT","JobName":"8c365504-e3a1-4de9-913e-6b0da017323d","JobGroup":"DEFAULT","FullName":"DEFAULT.5f9872c3-807c-412a-8225-92fb4e06710e","Key":{"Name":"5f9872c3-807c-412a-8225-92fb4e06710e","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989689589603475","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:49:18.9345867+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:49:28.9442706+00:00","NextFireTimeUtc":"2022-09-16T23:49:38.9345867+00:00","PrevFireTimeUtc":"2022-09-16T23:49:18.9345867+00:00","ScheduledFireTimeUtc":"2022-09-16T23:49:28.9345867+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:49:28.979 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:49:28.980 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:49:29.007 ERR Quartz.Core.JobRunShell] Job DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:49:29.012 ERR Quartz.Core.ErrorLogger] Job DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:49:29.023 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:49:38.943 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","FullName":"DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d","Key":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":3,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"5f9872c3-807c-412a-8225-92fb4e06710e","Group":"DEFAULT","JobName":"8c365504-e3a1-4de9-913e-6b0da017323d","JobGroup":"DEFAULT","FullName":"DEFAULT.5f9872c3-807c-412a-8225-92fb4e06710e","Key":{"Name":"5f9872c3-807c-412a-8225-92fb4e06710e","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"8c365504-e3a1-4de9-913e-6b0da017323d","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989689589603476","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:49:18.9345867+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:49:38.9435561+00:00","NextFireTimeUtc":"2022-09-16T23:49:48.9345867+00:00","PrevFireTimeUtc":"2022-09-16T23:49:28.9345867+00:00","ScheduledFireTimeUtc":"2022-09-16T23:49:38.9345867+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:49:38.975 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:49:38.977 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:49:39.000 ERR Quartz.Core.JobRunShell] Job DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d threw an unhandled Exception: 
+System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+[01:49:39.005 ERR Quartz.Core.ErrorLogger] Job DEFAULT.8c365504-e3a1-4de9-913e-6b0da017323d threw an exception.
+Quartz.SchedulerException: Job threw an unhandled exception.
+ ---> System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)
+   --- End of inner exception stack trace --- [See nested exception: System.ArgumentNullException: Value cannot be null. (Parameter 'path')
+   at System.IO.Path.GetFullPath(String path)
+   at System.IO.File.GetCreationTime(String path)
+   at TeslaUsbKeepCarAwake.Services.TeslaMateService.KeepCarAwake() in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Services\TeslaMateService.cs:line 22
+   at TeslaUsbKeepCarAwake.Scheduling.WakeUpJob.Execute(IJobExecutionContext context) in C:\Users\Admin\source\repos\TeslaUsbKeepCarAwake\TeslaUsbKeepCarAwake\Scheduling\WakeUpJob.cs:line 23
+   at Quartz.Core.JobRunShell.Run(CancellationToken cancellationToken)]
+[01:49:39.019 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:53:21.802 VRB TeslaUsbKeepCarAwake.Services.HelloService] UpdateSettings({"CarId":1,"TeslaMateBaseUrl":"http://192.168.1.50:4000/","MqttUrl":"192.168.1.50:1883","RelevantGeofence":"Lena","ArchiveUploadPath":"Z:\\Sicherungskopieen\\TeslaVideo\\ARCHIVE_UPLOADED","$type":"Settings"})
+[01:55:47.996 VRB TeslaUsbKeepCarAwake.Services.MqttService] ConnectMqttClient()
+[01:55:49.156 VRB TeslaUsbKeepCarAwake.Scheduling.JobManager] StartJobs()
+[01:55:50.353 DBG TeslaUsbKeepCarAwake.Services.MqttService] Car Id: 1, Topic: geofence, Value: Lena
+[01:55:51.997 DBG TeslaUsbKeepCarAwake.Services.MqttService] Car Id: 1, Topic: state, Value: suspended
+[01:55:52.154 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","FullName":"DEFAULT.36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Key":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":1,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"2f87fed5-f4c6-4827-ad11-7648504fef6a","Group":"DEFAULT","JobName":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","JobGroup":"DEFAULT","FullName":"DEFAULT.2f87fed5-f4c6-4827-ad11-7648504fef6a","Key":{"Name":"2f87fed5-f4c6-4827-ad11-7648504fef6a","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989693521173292","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:55:52.0895503+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:55:52.1249333+00:00","NextFireTimeUtc":"2022-09-16T23:56:02.0895503+00:00","PrevFireTimeUtc":null,"ScheduledFireTimeUtc":"2022-09-16T23:55:52.0895503+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:55:52.226 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:55:52.230 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:55:52.282 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Last Completed Time: "2022-09-16T21:16:24.4722189+02:00"
+[01:55:52.285 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Car State: suspended
+[01:55:52.286 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Car Home Since: "2022-09-17T01:55:50.3584813+02:00"
+[01:55:52.288 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] ResumeLogging()
+[01:55:52.289 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Url: http://192.168.1.50:4000//api/car/1/logging/resume
+[01:55:53.002 DBG TeslaUsbKeepCarAwake.Services.MqttService] Car Id: 1, Topic: state, Value: online
+[01:55:53.054 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:56:02.098 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","FullName":"DEFAULT.36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Key":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":2,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"2f87fed5-f4c6-4827-ad11-7648504fef6a","Group":"DEFAULT","JobName":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","JobGroup":"DEFAULT","FullName":"DEFAULT.2f87fed5-f4c6-4827-ad11-7648504fef6a","Key":{"Name":"2f87fed5-f4c6-4827-ad11-7648504fef6a","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989693521173293","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:55:52.0895503+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:56:02.0978565+00:00","NextFireTimeUtc":"2022-09-16T23:56:12.0895503+00:00","PrevFireTimeUtc":"2022-09-16T23:55:52.0895503+00:00","ScheduledFireTimeUtc":"2022-09-16T23:56:02.0895503+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:56:02.128 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:56:02.130 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:56:02.132 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Last Completed Time: "2022-09-16T21:16:24.4722189+02:00"
+[01:56:02.132 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Car State: online
+[01:56:02.133 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Car Home Since: "2022-09-17T01:55:50.3584813+02:00"
+[01:56:02.135 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
+[01:56:12.092 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] NewJob ({"JobDetail":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","FullName":"DEFAULT.36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Key":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","$type":"JobKey"},"Description":null,"JobType":"TeslaUsbKeepCarAwake.Scheduling.WakeUpJob","JobDataMap":[],"RequestsRecovery":false,"Durable":false,"PersistJobDataAfterExecution":false,"ConcurrentExecutionDisallowed":true,"$type":"JobDetailImpl"},"Trigger":{"RepeatCount":-1,"RepeatInterval":"00:00:10","TimesTriggered":3,"FinalFireTimeUtc":null,"HasMillisecondPrecision":true,"Name":"2f87fed5-f4c6-4827-ad11-7648504fef6a","Group":"DEFAULT","JobName":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","JobGroup":"DEFAULT","FullName":"DEFAULT.2f87fed5-f4c6-4827-ad11-7648504fef6a","Key":{"Name":"2f87fed5-f4c6-4827-ad11-7648504fef6a","Group":"DEFAULT","$type":"TriggerKey"},"JobKey":{"Name":"36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Group":"DEFAULT","$type":"JobKey"},"FullJobName":"DEFAULT.36e72ee8-92ac-432d-beca-cb4d1fd3bb7c","Description":null,"CalendarName":null,"JobDataMap":[],"MisfireInstruction":0,"FireInstanceId":"637989693521173294","EndTimeUtc":null,"StartTimeUtc":"2022-09-16T23:55:52.0895503+00:00","Priority":5,"HasAdditionalProperties":false,"$type":"SimpleTriggerImpl"},"Calendar":null,"Recovering":false,"FireTimeUtc":"2022-09-16T23:56:12.0923534+00:00","NextFireTimeUtc":"2022-09-16T23:56:22.0895503+00:00","PrevFireTimeUtc":"2022-09-16T23:56:02.0895503+00:00","ScheduledFireTimeUtc":"2022-09-16T23:56:12.0895503+00:00","$type":"TriggerFiredBundle"}, Quartz.Impl.StdScheduler)
+[01:56:12.123 VRB TeslaUsbKeepCarAwake.Scheduling.WakeUpJob] Executing Job to get PV values
+[01:56:12.124 VRB TeslaUsbKeepCarAwake.Services.TeslaMateService] KeepCarAwake()
+[01:56:13.393 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Last Completed Time: "2022-09-16T21:16:24.4722189+02:00"
+[01:56:13.395 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Car State: online
+[01:56:13.396 DBG TeslaUsbKeepCarAwake.Services.TeslaMateService] Car Home Since: "2022-09-17T01:55:50.3584813+02:00"
+[01:56:13.397 VRB TeslaUsbKeepCarAwake.Scheduling.JobFactory] JobFactory.ReturnJob(TeslaUsbKeepCarAwake.Scheduling.WakeUpJob)
