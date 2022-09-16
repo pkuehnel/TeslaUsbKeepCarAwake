@@ -1,0 +1,32 @@
+{
+  "profiles": {
+    "TeslaUsbKeepCarAwake": {
+      "commandName": "Project",
+      "commandLineArgs": "http://192.168.1.50:4000/ 192.168.1.50:1883 Lena Z:\\Sicherungskopieen\\TeslaVideo\\ARCHIVE_UPLOADED 1",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "dotnetRunMessages": true,
+      "applicationUrl": "http://localhost:5198"
+    },
+    "IIS Express": {
+      "commandName": "IISExpress",
+      "launchBrowser": true,
+      "launchUrl": "swagger",
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      }
+    }
+  },
+  "$schema": "https://json.schemastore.org/launchsettings.json",
+  "iisSettings": {
+    "windowsAuthentication": false,
+    "anonymousAuthentication": true,
+    "iisExpress": {
+      "applicationUrl": "http://localhost:43789",
+      "sslPort": 0
+    }
+  }
+}
