@@ -8,12 +8,14 @@ public class TeslaMateService : ITeslaMateService
     private readonly ILogger<TeslaMateService> _logger;
     private readonly CarState _carState;
     private readonly Settings _settings;
+    private readonly Internals _internals;
 
-    public TeslaMateService(ILogger<TeslaMateService> logger, CarState carState, Settings settings)
+    public TeslaMateService(ILogger<TeslaMateService> logger, CarState carState, Settings settings, Internals internals)
     {
         _logger = logger;
         _carState = carState;
         _settings = settings;
+        _internals = internals;
     }
 
     public async Task KeepCarAwake()
@@ -24,9 +26,11 @@ public class TeslaMateService : ITeslaMateService
         var relevantState = "suspended";
         _logger.LogDebug("Car State: {state}", _carState.State);
         _logger.LogDebug("Car Home Since: {homeSince}", _carState.HomeGeofenceSince);
+        _logger.LogDebug("ApplicationStartup: {startup}", _internals.ApplicationStartup);
         if (string.Equals(_carState.State, relevantState, StringComparison.CurrentCultureIgnoreCase) 
             && _carState.Geofence == _settings.RelevantGeofence
-            && completedDateTime < _carState.HomeGeofenceSince)
+            && completedDateTime < _carState.HomeGeofenceSince
+            && _internals.ApplicationStartup < _carState.HomeGeofenceSince.Value.AddMinutes(-1))
         {
             await ResumeLogging().ConfigureAwait(false);
         }

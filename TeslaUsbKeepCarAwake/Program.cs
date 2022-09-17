@@ -43,6 +43,7 @@ builder.Services
     .AddTransient<ITeslaMateService, TeslaMateService>()
     .AddTransient<HelloService>()
     .AddSingleton<CarState>()
+    .AddSingleton<Internals>()
     .AddSingleton(settings ?? new Settings())
     ;
 

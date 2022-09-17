@@ -21,5 +21,11 @@ namespace TeslaUsbKeepCarAwake.Controllers
         {
             await _helloService.UpdateSettings(settings);
         }
+
+        [HttpGet]
+        public bool IsAlive()
+        {
+            return true;
+        }
     }
 }
