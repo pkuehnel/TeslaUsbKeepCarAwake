@@ -19,7 +19,7 @@ public class WakeUpJob : IJob
     }
     public async Task Execute(IJobExecutionContext context)
     {
-        _logger.LogTrace("Executing Job to get PV values");
+        _logger.LogTrace("Executing Job to keep car awake");
         await _service.KeepCarAwake().ConfigureAwait(false);
     }
 }
