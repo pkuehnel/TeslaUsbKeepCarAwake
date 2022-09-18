@@ -26,8 +26,11 @@ public class TeslaMateService : ITeslaMateService
         _logger.LogDebug("Car State: {state}", _carState.State);
         _logger.LogDebug("Car Home Since: {homeSince}", _carState.HomeGeofenceSince);
         _logger.LogDebug("ApplicationStartup: {startup}", _internals.ApplicationStartup);
+        _logger.LogDebug("MinimumSoC: {minimumSoC}", _settings.MinimumSoC);
+        _logger.LogDebug("SoC: {soc}", _carState.SoC);
         if (string.Equals(_carState.State, relevantState, StringComparison.CurrentCultureIgnoreCase) 
-            && _carState.Geofence == _settings.RelevantGeofence)
+            && _carState.Geofence == _settings.RelevantGeofence
+            && _settings.MinimumSoC < _carState.SoC)
         {
             //Splitted into two ifs so completed datetime can be logged and no access to file if car is in irrelevant state
             var completedDateTime = File.GetCreationTime(_settings.ArchiveUploadPath);

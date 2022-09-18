@@ -6,5 +6,6 @@ public class CarState
     public string? LastGeofence { get; set; }
     public string? State { get; set; }
     public string? LastState { get; set; }
+    public int? SoC { get; set; }
     public DateTime? HomeGeofenceSince { get; set; }
 }

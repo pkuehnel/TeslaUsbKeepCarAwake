@@ -14,6 +14,7 @@ public class MqttService
 
     private const string TopicGeofence = "geofence";
     private const string TopicState = "state";
+    private const string TopicSoc = "battery_level";
 
     public MqttService(ILogger<MqttService> logger, IMqttClient mqttClient, MqttFactory mqttFactory, CarState carState, Settings settings)
     {
@@ -69,6 +70,10 @@ public class MqttService
             {
                 f.WithTopic($"{topicPrefix}{TopicState}");
             })
+            .WithTopicFilter(f =>
+            {
+                f.WithTopic($"{topicPrefix}{TopicSoc}");
+            })
             .Build();
 
         await _mqttClient.SubscribeAsync(mqttSubscribeOptions, CancellationToken.None).ConfigureAwait(false);
@@ -81,7 +86,10 @@ public class MqttService
             case TopicGeofence:
                 if (value.Value == relevantGeoFence)
                 {
-                    _carState.HomeGeofenceSince = DateTime.Now;
+                    if (value.Value != _carState.LastGeofence)
+                    {
+                        _carState.HomeGeofenceSince = DateTime.Now;
+                    }
                 }
                 else
                 {
@@ -93,6 +101,12 @@ public class MqttService
             case TopicState:
                 _carState.LastState = _carState.State;
                 _carState.State = value.Value;
+                break;
+            case TopicSoc:
+                if (!string.IsNullOrWhiteSpace(value.Value))
+                {
+                    _carState.SoC = Convert.ToInt32(value.Value);
+                }
                 break;
             default:
                 break;
