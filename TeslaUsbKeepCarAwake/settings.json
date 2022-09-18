@@ -1,1 +1,8 @@
-{"CarId":1,"TeslaMateBaseUrl":"http://192.168.1.50:4000/","MqttUrl":"192.168.1.50:1883","RelevantGeofence":"Lena","ArchiveUploadPath":"Z:\\Sicherungskopieen\\TeslaVideo\\ARCHIVE_UPLOADED"}
+{
+  "CarId": 1,
+  "MinimumSoC": 20,
+  "TeslaMateBaseUrl": "http://192.168.1.50:4000/",
+  "MqttUrl": "192.168.1.50:1883",
+  "RelevantGeofence": "Home",
+  "ArchiveUploadPath": "Z:\\Sicherungskopieen\\TeslaVideo\\ARCHIVE_UPLOADED"
+}
