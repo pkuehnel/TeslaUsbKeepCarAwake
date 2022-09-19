@@ -1,9 +1,10 @@
 {
   "CarId": 1,
   "MinimumSoC": 20,
-  "TeslaMateBaseUrl": "http://192.168.1.50:4000/",
+  "TeslaMateBaseUrl": "http://192.168.1.50:4000",
+  "TeslaMateApiBaseUrl": "http://192.168.1.50:8097",
   "MqttUrl": "192.168.1.50:1883",
-  "RelevantGeofence": "Home",
+  "RelevantGeofence": "Zu Hause",
   "ArchiveUploadPath": "Z:\\Sicherungskopieen\\TeslaVideo\\ARCHIVE_UPLOADED",
   "JobIntervallSeconds": 540
 }

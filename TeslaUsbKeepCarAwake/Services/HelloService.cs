@@ -21,7 +21,7 @@ public class HelloService
         _settings.CarId = settings.CarId;
         _settings.MqttUrl = settings.MqttUrl;
         _settings.RelevantGeofence = settings.RelevantGeofence;
-        _settings.TeslaMateBaseUrl = settings.TeslaMateBaseUrl;
+        _settings.TeslaMateApiBaseUrl = settings.TeslaMateApiBaseUrl;
 
         var serializedSettings = JsonConvert.SerializeObject(_settings);
         await File.WriteAllTextAsync("settings.json", serializedSettings);
