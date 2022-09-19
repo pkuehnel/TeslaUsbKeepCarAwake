@@ -4,5 +4,6 @@
   "TeslaMateBaseUrl": "http://192.168.1.50:4000/",
   "MqttUrl": "192.168.1.50:1883",
   "RelevantGeofence": "Home",
-  "ArchiveUploadPath": "Z:\\Sicherungskopieen\\TeslaVideo\\ARCHIVE_UPLOADED"
+  "ArchiveUploadPath": "Z:\\Sicherungskopieen\\TeslaVideo\\ARCHIVE_UPLOADED",
+  "JobIntervallSeconds": 540
 }

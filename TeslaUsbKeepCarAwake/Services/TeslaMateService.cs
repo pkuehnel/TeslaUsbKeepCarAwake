@@ -1,4 +1,4 @@
-﻿using TeslaUsbKeepCarAwake.Dtos;
+using TeslaUsbKeepCarAwake.Dtos;
 using TeslaUsbKeepCarAwake.Services.Contracts;
 
 namespace TeslaUsbKeepCarAwake.Services;
@@ -38,15 +38,15 @@ public class TeslaMateService : ITeslaMateService
             if (completedDateTime < _carState.HomeGeofenceSince
                 && _internals.ApplicationStartup < _carState.HomeGeofenceSince.Value.AddMinutes(-1))
             {
-                await ResumeLogging().ConfigureAwait(false);
+                await WakeupCar().ConfigureAwait(false);
             }
         }
     }
 
-    private async Task ResumeLogging()
+    private async Task WakeupCar()
     {
-        _logger.LogTrace("{method}()", nameof(ResumeLogging));
-        var url = $"{_settings.TeslaMateBaseUrl}/api/car/{_settings.CarId}/logging/resume";
+        _logger.LogTrace("{method}()", nameof(WakeupCar));
+        var url = $"{_settings.TeslaMateBaseUrl}/api/v1/cars/{_settings.CarId}/wake_up";
         _logger.LogDebug("Url: {url}", url);
         using var httpClient = new HttpClient();
         var response = await httpClient.PutAsync(url, null).ConfigureAwait(false);

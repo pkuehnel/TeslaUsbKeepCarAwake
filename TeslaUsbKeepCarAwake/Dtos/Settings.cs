@@ -8,4 +8,5 @@ public class Settings
     public string MqttUrl { get; set; } = null!;
     public string RelevantGeofence { get; set; } = null!;
     public string ArchiveUploadPath { get; set; } = null!;
+    public int JobIntervallSeconds { get; set; }
 }
