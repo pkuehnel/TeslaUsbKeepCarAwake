@@ -1,10 +1,11 @@
 ﻿using MQTTnet.Client;
 using MQTTnet;
 using TeslaUsbKeepCarAwake.Dtos;
+using TeslaUsbKeepCarAwake.Services.Contracts;
 
 namespace TeslaUsbKeepCarAwake.Services;
 
-public class MqttService
+public class MqttService : IMqttService
 {
     private readonly ILogger<MqttService> _logger;
     private readonly IMqttClient _mqttClient;
@@ -25,11 +26,14 @@ public class MqttService
         _settings = settings;
     }
 
+    public bool IsConnected => _mqttClient.IsConnected;
+
 
     public async Task ConnectMqttClient()
     {
         _logger.LogTrace("{method}()", nameof(ConnectMqttClient));
-        var mqqtClientId = "TeslaUsbKeepCarAwake";
+        var guid = Guid.NewGuid();
+        var mqqtClientId = $"TeslaUsbKeepCarAwake{guid}";
         var mosquitoServer = GetMqttServerAndPort(out var mqttServerPort, _settings.MqttUrl);
         var mqttClientOptions = new MqttClientOptionsBuilder()
             .WithClientId(mqqtClientId)
@@ -86,10 +90,7 @@ public class MqttService
             case TopicGeofence:
                 if (value.Value == relevantGeoFence)
                 {
-                    if (value.Value != _carState.LastGeofence)
-                    {
-                        _carState.HomeGeofenceSince = DateTime.Now;
-                    }
+                    _carState.HomeGeofenceSince = DateTime.Now;
                 }
                 else
                 {
@@ -142,8 +143,18 @@ public class MqttService
         return mqttServer;
     }
 
+    public async Task ConnectClientIfNotConnected()
+    {
+        _logger.LogTrace("{method}()", nameof(ConnectClientIfNotConnected));
+        if (_mqttClient.IsConnected)
+        {
+            _logger.LogTrace("MqttClient is connected");
+            return;
+        }
+        _logger.LogWarning("MqttClient is not connected");
+        await ConnectMqttClient().ConfigureAwait(false);
+    }
 
-    
 }
 
 public class TeslaMateValue

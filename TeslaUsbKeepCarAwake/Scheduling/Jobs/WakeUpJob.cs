@@ -2,7 +2,7 @@
 using TeslaUsbKeepCarAwake.Dtos;
 using TeslaUsbKeepCarAwake.Services.Contracts;
 
-namespace TeslaUsbKeepCarAwake.Scheduling;
+namespace TeslaUsbKeepCarAwake.Scheduling.Jobs;
 
 [DisallowConcurrentExecution]
 public class WakeUpJob : IJob

@@ -1,6 +1,7 @@
 ﻿using Quartz.Spi;
 using Quartz;
 using TeslaUsbKeepCarAwake.Dtos;
+using TeslaUsbKeepCarAwake.Scheduling.Jobs;
 
 namespace TeslaUsbKeepCarAwake.Scheduling;
 
@@ -31,14 +32,17 @@ public class JobManager
         _scheduler.JobFactory = _jobFactory;
 
         var wakeUpJob = JobBuilder.Create<WakeUpJob>().Build();
-        
-
         var wakeUpTrigger =
             TriggerBuilder.Create().WithSchedule(SimpleScheduleBuilder.RepeatSecondlyForever(_settings.JobIntervallSeconds)).Build();
+
+        var mqttReconnectionJob = JobBuilder.Create<MqttReconnectionJob>().Build();
+        var mqttReconnectionTrigger =
+            TriggerBuilder.Create().WithSchedule(SimpleScheduleBuilder.RepeatMinutelyForever(3)).Build();
 
         var triggersAndJobs = new Dictionary<IJobDetail, IReadOnlyCollection<ITrigger>>
         {
             {wakeUpJob,  new HashSet<ITrigger> { wakeUpTrigger }},
+            {mqttReconnectionJob, new HashSet<ITrigger> { mqttReconnectionTrigger }},
         };
 
         await _scheduler.ScheduleJobs(triggersAndJobs, false).ConfigureAwait(false);
